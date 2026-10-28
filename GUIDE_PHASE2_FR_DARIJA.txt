@@ -1,0 +1,23 @@
+PHASE 2 - INTEGRATION OFFLINE AVEC UN EXPORT WAZUH
+====================================================
+
+PHASE 2 = lecture d'un fichier d'alertes exporté d'un Wazuh de laboratoire.
+Pas de connexion live et PAS d'intégration TheHive/Shuffle.
+
+1) Teste d'abord sans Wazuh :
+   py -m soclab import-wazuh --input data/exported_wazuh_demo.jsonl
+   start .\outputs\real-lab\report.html
+   py -m unittest discover -s tests -v
+
+2) Si Wazuh est disponible dans ton ancien lab (ne le lance pas juste pour ce projet):
+   - Sur Wazuh Manager, cherche le fichier alerts.json dans /var/ossec/logs/alerts/.
+   - Copie seulement quelques lignes d'un lab dont tu as l'autorisation dans un fichier JSONL local.
+   - Ne publie AUCUN log reel brut sur GitHub. Supprime/anonymise IP, noms, comptes, secrets.
+   - Si les alertes n'ont pas de data.srcip ou data.win.eventdata.ipAddress, elles seront ignorees dans ce prototype.
+   - Sur Windows, place le fichier dans un dossier personnel (ex. C:\lab\wazuh_export.jsonl)
+   - Execute :
+     py -m soclab import-wazuh --input "C:\lab\wazuh_export.jsonl"
+
+3) Les rapports outputs/ restent LOCAUX. Ne partage pas rapport.html si les logs sont sensibles.
+4) Les scores de reputation sont DESACTIVES en mode import-wazuh. Pas d'API externe.
+5) Pour repartir de zero, utiliser --db outputs/essai2/incidents.db --out outputs/essai2.

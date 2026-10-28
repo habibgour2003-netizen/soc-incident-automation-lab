@@ -1,0 +1,18 @@
+PHASE 1: SOC Incident Automation (offline)
+===========================================
+
+1) Decompresser le ZIP.
+2) Ouvrir PowerShell dans le dossier SOC_Incident_Automation_Lab.
+3) Executer les commandes suivantes :
+
+   py -m soclab run
+   py -m unittest discover -s tests -v
+   start .\outputs\report.html
+
+Si py ne marche pas, remplacer par python.
+
+Resultat attendu : 6 alertes, 2 ignorees, 4 acceptees, 2 incidents (3 alertes groupees + 1 alerte separee).
+
+Ce projet est une DEMONSTRATION OFFLINE avec logs et scores reputations SYNTHETIQUES. Pas de vraie connexion Wazuh/TheHive/Shuffle/API en phase 1.
+
+Pour refaire a neuf, supprimer outputs/incidents.db puis executer py -m soclab run.

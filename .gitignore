@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite
+*.sqlite3
+outputs/
+.idea/
+.vscode/
+.DS_Store
+
+# Never commit private Wazuh exports or real log data
+private_data/
+wazuh_export*.jsonl
+alerts.json
