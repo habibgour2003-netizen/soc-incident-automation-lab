@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SOC Incident Automation — Local Lab</title><style>
+*{box-sizing:border-box}body{font-family:system-ui,Segoe UI,Arial;background:#091424;color:#e8eff7;margin:0;padding:40px}
+main{max-width:1200px;margin:auto}header{border-bottom:1px solid #294057;padding-bottom:22px}
+h1{font-size:34px;margin:8px 0}p{color:#9fb5c9}.tag{color:#51debf;letter-spacing:2px;font-size:12px;font-weight:bold}
+.cards{display:flex;gap:16px;flex-wrap:wrap;margin:30px 0}.card{background:#122438;border:1px solid #284158;border-radius:12px;padding:22px;min-width:190px;flex:1}
+.num{font-size:32px;font-weight:700}.label{color:#99b2c8;font-size:14px}table{border-collapse:collapse;width:100%;font-size:14px;overflow:hidden}
+th,td{padding:14px;border-bottom:1px solid #254058;text-align:left}th{color:#8cd1ed;background:#172c43}tr:hover{background:#19324a}
+.diagram{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 34px}.step{padding:12px 18px;border:1px solid #29627c;border-radius:9px;background:#102c41}
+.notice{padding:18px;border:1px solid #88692f;background:#292517;border-radius:10px;color:#e5c889;margin-top:30px}
+</style></head><body><main><header><div class="tag">DEFENSIVE SECURITY ENGINEERING • OFFLINE PROTOTYPE</div>
+<h1>Incident Automation Lab</h1><p>Exported Wazuh JSON alerts → Filtering → No external IOC enrichment → Local incidents</p></header>
+<div class="cards"><div class="card"><div class="num">2</div><div class="label">Incidents</div></div>
+<div class="card"><div class="num">1</div><div class="label">High severity</div></div>
+<div class="card"><div class="num">3</div><div class="label">Correlated alerts</div></div></div>
+<h2>Automation flow</h2><div class="diagram"><div class="step">1. Ingest Wazuh JSONL</div><div class="step">→ 2. Filter rules</div>
+<div class="step">→ 3. No IOC lookups</div><div class="step">→ 4. Correlate / deduplicate</div><div class="step">→ 5. Create local incidents</div></div>
+<h2>Incident queue</h2><table><thead><tr><th>Case</th><th>Source IP</th><th>Agent</th><th>Detection</th><th>Severity</th><th>Mock score</th><th>Events</th><th>Status</th></tr></thead>
+<tbody><tr><td>1</td><td>203.0.113.99</td><td>ubuntu-lab</td><td>sshd: authentication failure.</td><td>HIGH</td><td>None</td><td>2</td><td>NEW</td></tr>
+<tr><td>2</td><td>198.51.100.42</td><td>windows-lab</td><td>Windows: failed logon</td><td>MEDIUM</td><td>None</td><td>1</td><td>NEW</td></tr></tbody></table>
+<div class="notice"><strong>Important:</strong> Imported alerts may be real and sensitive: keep this report private. Reputation was NOT looked up; no TheHive, Shuffle, VirusTotal or AbuseIPDB API is connected. This is not a production SOC and does not establish real-world detection performance.</div>
+</main></body></html>

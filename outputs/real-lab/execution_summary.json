@@ -1,0 +1,9 @@
+{
+  "read": 4,
+  "accepted": 3,
+  "below_threshold": 1,
+  "invalid": 0,
+  "duplicate_event": 0,
+  "created": 2,
+  "grouped": 1
+}
